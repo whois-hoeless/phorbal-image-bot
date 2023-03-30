@@ -47,4 +47,4 @@ async def on_message(message):
         await message.channel.send('There are ' + str(len(file_list)) + ' files in the phorbal folder. No duplicates detected.')
 
 #run the bot
-client.run('MTA5MTEwMDYzNjQ2NjExODY3Nw.GwI222.-kvDxzixXxpX4vZymPCv0YIP6veLKduO8xIxV0')
+client.run('')
