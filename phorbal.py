@@ -13,13 +13,13 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-#list all files in the phorbal folder
-files = os.listdir('phorbal')
 file_list = []
 
-#append the list of files to the file_list list
-for file in files:
-    file_list.append(file)
+with open('phorbalurl.txt', 'r') as f:
+    for line in f.readlines():
+        line = line.strip('\n')
+        file_list.append(line)
+    f.close()
 
 #when a message is sent
 @client.event
@@ -33,18 +33,15 @@ async def on_message(message):
     if 'phorbal' in message.content.lower():
         
         #generate a random file from the file_list list
-        r_img = 'phorbal/' + random.choice(file_list)
-        #open the file
-        with open(r_img, 'rb') as f:
-            img = discord.File(f, filename=r_img)
-            #send the file to the channel where the message was sent
-            await message.channel.send(file=img)
+        linkie = random.choice(file_list)
+        print(file_list)
+        await message.channel.send(linkie)
     
     #check if the message contains the string 'p-stats'
-    if 'p-stats' in message.content.lower():
+    elif 'p-stats' in message.content.lower():
 
         #send the stats of the phorbal folder to the channel where the message was sent
         await message.channel.send('There are ' + str(len(file_list)) + ' files in the phorbal folder. No duplicates detected.')
 
 #run the bot
-client.run('')
+client.run('TOKEN')
