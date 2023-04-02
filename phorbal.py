@@ -41,7 +41,7 @@ async def on_message(message):
     elif 'p-stats' in message.content.lower():
 
         #send the stats of the phorbal folder to the channel where the message was sent
-        await message.channel.send('There are ' + str(len(file_list)) + ' files in the phorbal folder. No duplicates detected.')
+        await message.channel.send('There are ' + str(len(file_list)) + ' files in the phorbalurl.txt. No duplicates detected.')
 
 #run the bot
 client.run('TOKEN')
