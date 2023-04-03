@@ -34,7 +34,6 @@ async def on_message(message):
         
         #generate a random file from the file_list list
         linkie = random.choice(file_list)
-        print(file_list)
         await message.channel.send(linkie)
     
     #check if the message contains the string 'p-stats'
