@@ -1,11 +1,11 @@
-import os
 import discord
 import random
-#make a simple discord bot with the discord.py library
+from replit_keep_alive import keep_alive  #Credits in replit_keep_alive.py
+
 intents=discord.Intents.all()
 client = discord.Client(intents=intents)
 
-#when the bot is ready
+
 @client.event
 async def on_ready():
     print('Logged in as')
@@ -21,7 +21,7 @@ with open('phorbalurl.txt', 'r') as f:
         file_list.append(line)
     f.close()
 
-#when a message is sent
+
 @client.event
 async def on_message(message):
 
@@ -43,4 +43,5 @@ async def on_message(message):
         await message.channel.send('There are ' + str(len(file_list)) + ' files in the phorbalurl.txt. No duplicates detected.')
 
 #run the bot
+#keep_alive() #<- Uncomment this line if you want to host the bot on replit.com
 client.run('TOKEN')
